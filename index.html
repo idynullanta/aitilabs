@@ -5,41 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Голосование за активности</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.5);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .option {
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .option:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Голосование за активность</h1>
-        <p class="text-center text-gray-600 mb-4">Выберите одну активность, которая вам больше всего нравится!</p>
-        <form id="voteForm" class="space-y-4">
-            <div class="flex flex-col space-y-2">
-                <label class="inline-flex items-center">
-                    <input type="radio" name="activity" value="Квадроциклы" class="form-radio text-blue-600" required>
-                    <span class="ml-2 text-gray-700">Квадроциклы</span>
-                </label>
-                <label class="inline-flex items-center">
-                    <input type="radio" name="activity" value="Сап-борды" class="form-radio text-blue-600">
-                    <span class="ml-2 text-gray-700">Сап-борды</span>
-                </label>
-                <label class="inline-flex items-center">
-                    <input type="radio" name="activity" value="Каяки" class="form-radio text-blue-600">
-                    <span class="ml-2 text-gray-700">Каяки</span>
-                </label>
-                <label class="inline-flex items-center">
-                    <input type="radio" name="activity" value="Питбайки" class="form-radio text-blue-600">
-                    <span class="ml-2 text-gray-700">Питбайки</span>
-                </label>
-                <label class="inline-flex items-center">
-                    <input type="radio" name="activity" value="Картинг" class="form-radio text-blue-600">
-                    <span class="ml-2 text-gray-700">Картинг</span>
-                </label>
-                <label class="inline-flex items-center">
-                    <input type="radio" name="activity" value="Верховая езда" class="form-radio text-blue-600">
-                    <span class="ml-2 text-gray-700">Верховая езда</span>
-                </label>
-            </div>
-            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Проголосовать</button>
-        </form>
-        <p id="message" class="text-center text-green-600 mt-4 hidden">Спасибо за ваш голос!</p>
+<body class="text-white">
+    <div class="overlay">
+        <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-2xl max-w-lg w-full mx-4">
+            <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Выбери свою активность!</h1>
+            <p class="text-center text-gray-600 mb-6">Голосуй за любимый вид активного отдыха</p>
+            <form id="voteForm" class="space-y-4">
+                <div class="flex flex-col space-y-3">
+                    <label class="inline-flex items-center p-3 rounded-lg option cursor-pointer">
+                        <input type="radio" name="activity" value="Квадроциклы" class="form-radio text-orange-500" required>
+                        <img src="https://img.icons8.com/ios/24/000000/atv.png" alt="Квадроциклы" class="icon">
+                        <span class="ml-2 text-gray-700">Квадроциклы</span>
+                    </label>
+                    <label class="inline-flex items-center p-3 rounded-lg option cursor-pointer">
+                        <input type="radio" name="activity" value="Сап-борды" class="form-radio text-orange-500">
+                        <img src="https://img.icons8.com/ios/24/000000/paddle.png" alt="Сап-борды" class="icon">
+                        <span class="ml-2 text-gray-700">Сап-борды</span>
+                    </label>
+                    <label class="inline-flex items-center p-3 rounded-lg option cursor-pointer">
+                        <input type="radio" name="activity" value="Каяки" class="form-radio text-orange-500">
+                        <img src="https://img.icons8.com/ios/24/000000/kayaking.png" alt="Каяки" class="icon">
+                        <span class="ml-2 text-gray-700">Каяки</span>
+                    </label>
+                    <label class="inline-flex items-center p-3 rounded-lg option cursor-pointer">
+                        <input type="radio" name="activity" value="Питбайки" class="form-radio text-orange-500">
+                        <img src="https://img.icons8.com/ios/24/000000/motorcycle.png" alt="Питбайки" class="icon">
+                        <span class="ml-2 text-gray-700">Питбайки</span>
+                    </label>
+                    <label class="inline-flex items-center p-3 rounded-lg option cursor-pointer">
+                        <input type="radio" name="activity" value="Картинг" class="form-radio text-orange-500">
+                        <img src="https://img.icons8.com/ios/24/000000/race-car.png" alt="Картинг" class="icon">
+                        <span class="ml-2 text-gray-700">Картинг</span>
+                    </label>
+                    <label class="inline-flex items-center p-3 rounded-lg option cursor-pointer">
+                        <input type="radio" name="activity" value="Верховая езда" class="form-radio text-orange-500">
+                        <img src="https://img.icons8.com/ios/24/000000/horse.png" alt="Верховая езда" class="icon">
+                        <span class="ml-2 text-gray-700">Верховая езда</span>
+                    </label>
+                </div>
+                <button type="submit" class="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600 transition transform hover:scale-105">Проголосовать</button>
+            </form>
+            <p id="message" class="text-center text-green-600 mt-4 hidden">Спасибо за ваш голос!</p>
+        </div>
     </div>
 
     <script>
